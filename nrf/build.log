@@ -1,0 +1,16 @@
+[CC] startup.c
+arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wall -Wextra -O2 -fno-builtin -fno-strict-aliasing -ffreestanding -c startup.c -o startup.o
+[CC] main.c
+arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wall -Wextra -O2 -fno-builtin -fno-strict-aliasing -ffreestanding -c main.c -o main.o
+[LINK] main.elf
+arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wall -Wextra -O2 -fno-builtin -fno-strict-aliasing -ffreestanding -nostartfiles -nolibc -Tlinker.ld -Wl,-Map=main.map -Wl,--gc-sections startup.o main.o -o main.elf
+/opt/homebrew/opt/arm-none-eabi-binutils/bin/arm-none-eabi-ld: warning: main.elf has a LOAD segment with RWX permissions
+[HEX] main.hex
+arm-none-eabi-objcopy -O ihex main.elf main.hex
+
+Build complete!
+Artifacts:
+-rwxr-xr-x@ 1 umeshgopi  staff   5.8K Aug 31 20:21 main.elf
+-rw-r--r--@ 1 umeshgopi  staff   1.6K Aug 31 20:21 main.hex
+   text	   data	    bss	    dec	    hex	filename
+    520	     64	      0	    584	    248	main.elf

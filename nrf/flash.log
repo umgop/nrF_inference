@@ -1,0 +1,47 @@
+nrfjprog --recover -f NRF52
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 736.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 629.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 3139.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 911.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 3139.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 3139.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 3139.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 3087.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 3112.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 3349.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 3160.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 3176.
+Recovering device. This operation might take 30s.
+Erasing user code and UICR flash areas.
+nrfjprog --program main.hex --verify --sectorerase -f NRF52
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 736.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 629.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 3139.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 911.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 3139.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 3139.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 3139.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 3087.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 3112.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 3349.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 3160.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 3176.
+[ ######               ]   0.000s | Erase file - Check image                                                           [ #####                ]   0.000s | Check image validity - Initialize device info                                      [ ##########           ]   0.000s | Check image validity - Check region 0 settings                                     [ ###############      ]   0.000s | Check image validity - block 1 of 2                                                [ #################### ]   0.013s | Check image validity - Finished                                                    [ #############        ]   0.000s | Erase file - Erasing                                                               [ ##########           ]   0.000s | Erasing non-volatile memory - block 1 of 1                                         [ #################### ]   0.000s | Erasing non-volatile memory - Erase successful                                     [ #################### ]   0.120s | Erase file - Done erasing                                                          
+[ ######               ]   0.000s | Program file - Checking image                                                      [ #####                ]   0.000s | Check image validity - Initialize device info                                      [ ##########           ]   0.000s | Check image validity - Check region 0 settings                                     [ ###############      ]   0.067s | Check image validity - block 1 of 2                                                [ #################### ]   0.007s | Check image validity - Finished                                                    [ #############        ]   0.000s | Program file - Programming                                                         [ ##########           ]   0.000s | Programming image - block 1 of 1                                                   [ #################### ]   0.000s | Programming image - Write successful                                               [ #################### ]   0.010s | Program file - Done programming                                                    
+[ ######               ]   0.000s | Verify file - Check image                                                          [ #####                ]   0.000s | Check image validity - Initialize device info                                      [ ##########           ]   0.000s | Check image validity - Check region 0 settings                                     [ ###############      ]   0.079s | Check image validity - block 1 of 2                                                [ #################### ]   0.008s | Check image validity - Finished                                                    [ #############        ]   0.000s | Verify file - Verifying                                                            [ ##########           ]   0.000s | Verifying image - block 1 of 1                                                     [ #################### ]   0.000s | Verifying image - Verify successful                                                [ #################### ]   0.008s | Verify file - Done verifying                                                       
+nrfjprog --reset -f NRF52
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 736.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 629.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 3139.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 911.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 3139.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 3139.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 3139.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 3087.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 3112.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 3349.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 3160.
+[error] [SeggerBackend] - JLinkARM.dll reported error -256 at line 3176.
+Applying system reset.
+Run.
+✓ Full flash sequence complete!

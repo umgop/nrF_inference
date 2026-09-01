@@ -1,0 +1,99 @@
+
+Merging object attributes
+
+
+Discarded input sections
+
+ .data          0x00000000        0x0 startup.o
+ .bss           0x00000000        0x0 startup.o
+ .data          0x00000000        0x0 main.o
+ .bss           0x00000000        0x0 main.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x00000000         0x00040000         xr
+RAM              0x20000000         0x00010000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD startup.o
+LOAD main.o
+START GROUP
+LOAD /opt/homebrew/Cellar/arm-none-eabi-gcc/16.2.0/lib/gcc/arm-none-eabi/16.2.0/thumb/v7e-m+fp/hard/libgcc.a
+END GROUP
+                0x20010000                        _estack = (ORIGIN (RAM) + LENGTH (RAM))
+
+.isr_vector     0x00000000       0x40
+ *(.isr_vector)
+ .isr_vector    0x00000000       0x40 startup.o
+                0x00000000                vector_table
+
+.text           0x00000040      0x250
+                0x00000040                        . = ALIGN (0x4)
+ *(.text*)
+ .text          0x00000040       0x78 startup.o
+                0x00000040                Default_Handler
+                0x00000044                Reset_Handler
+ .text          0x000000b8       0xf0 main.o
+                0x000000b8                gpio_init
+                0x000000e8                read_temp
+                0x00000120                run_inference
+ .text.startup  0x000001a8       0xe8 main.o
+                0x000001a8                main
+ *(.rodata*)
+                0x00000290                        . = ALIGN (0x4)
+                0x00000290                        _etext = .
+                0x00000290                        _sidata = LOADADDR (.data)
+
+.glue_7         0x00000290        0x0
+ .glue_7        0x00000290        0x0 linker stubs
+
+.glue_7t        0x00000290        0x0
+ .glue_7t       0x00000290        0x0 linker stubs
+
+.vfp11_veneer   0x00000290        0x0
+ .vfp11_veneer  0x00000290        0x0 linker stubs
+
+.v4_bx          0x00000290        0x0
+ .v4_bx         0x00000290        0x0 linker stubs
+
+.iplt           0x00000290        0x0
+ .iplt          0x00000290        0x0 startup.o
+
+.rel.dyn        0x00000290        0x0
+ .rel.iplt      0x00000290        0x0 startup.o
+
+.data           0x20000000        0x0 load address 0x00000290
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _sdata = .
+ *(.data*)
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _edata = .
+
+.igot.plt       0x20000000        0x0 load address 0x00000290
+ .igot.plt      0x20000000        0x0 startup.o
+
+.bss            0x20000000        0x0 load address 0x00000290
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _sbss = .
+ *(.bss*)
+ *(COMMON)
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _ebss = .
+OUTPUT(main.elf elf32-littlearm)
+LOAD linker stubs
+
+.comment        0x00000000       0x12
+ .comment       0x00000000       0x12 startup.o
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 main.o
+                                 0x13 (size before relaxing)
+
+.ARM.attributes
+                0x00000000       0x34
+ .ARM.attributes
+                0x00000000       0x34 startup.o
+ .ARM.attributes
+                0x00000034       0x34 main.o
